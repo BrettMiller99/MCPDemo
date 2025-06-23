@@ -1,0 +1,33 @@
+{
+  "name": "mcp-demo",
+  "version": "1.0.0",
+  "description": "A stylish login page demo inspired by the Windsurf website design, featuring:",
+  "main": "login.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrettMiller99/MCPDemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BrettMiller99/MCPDemo/issues"
+  },
+  "homepage": "https://github.com/BrettMiller99/MCPDemo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "playwright": "^1.53.1"
+  }
+}
