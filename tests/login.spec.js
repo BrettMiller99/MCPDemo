@@ -14,7 +14,7 @@ test.describe('Windsurf Login Application', () => {
     // Verify the Windsurf logo is present
     const logo = page.locator('.logo img');
     await expect(logo).toBeVisible();
-    await expect(logo).toHaveAttribute('src', 'windsurf-white-wordmark.svg');
+    await expect(logo).toHaveAttribute('src', 'images/windsurf-white-wordmark.svg');
 
     // Verify the heading is present
     const heading = page.locator('h1#form-title');
