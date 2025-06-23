@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Hide scrollbars from animation */
+}
+
+:root {
+    --color-bg: #010409;
+    --color-primary: #00F2A9;
+    --color-primary-hover: #00DDAA;
+    --color-secondary: #096FFF;
+    --color-accent: #9500FF;
+    --color-text: #ffffff;
+    --color-text-secondary: #A8B2D1;
+    --color-border: #1E3A8A;
+    --color-input-bg: #0D1A3F;
+    --color-card-bg: rgba(17, 34, 77, 0.85);
+    --color-error: #FF4D4D;
+    
+    /* Gradient colors */
+    --gradient-1: #00F2A9;
+    --gradient-2: #096FFF;
+    --gradient-3: #9500FF;
+    --gradient-4: #FF5D00;
+    --gradient-5: #FFE88E;
+}
+
+#animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--color-bg);
+    overflow: hidden;
+}
+
+.gradient-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    background: radial-gradient(circle at 50% 50%, #0979cf 0%, #096FFF 40%, #010409 80%);
+    animation: pulse-bg 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-bg {
+    0% {
+        background: radial-gradient(circle at 30% 30%, #0979cf 0%, #096FFF 40%, #010409 80%);
+    }
+    50% {
+        background: radial-gradient(circle at 50% 50%, #096FFF 0%, #1380d9 40%, #010409 80%);
+    }
+    100% {
+        background: radial-gradient(circle at 70% 70%, #1380d9 0%, #0979cf 40%, #010409 80%);
+    }
+}
+
+.gradient-layer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0979cf, transparent 70%);
+    opacity: 0.3;
+    animation: rotate 15s linear infinite;
+}
+
+.gradient-layer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(225deg, #096FFF, transparent 70%);
+    opacity: 0.3;
+    animation: rotate 15s linear infinite reverse;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.gradient-layer:nth-child(1) {
+    background: radial-gradient(circle, var(--gradient-1), transparent 40%);
+    animation-delay: 0s;
+}
+
+.gradient-layer:nth-child(2) {
+    background: radial-gradient(circle, var(--gradient-2), transparent 40%);
+    animation-delay: -4s;
+}
+
+.gradient-layer:nth-child(3) {
+    background: radial-gradient(circle, var(--color-3), transparent 40%);
+    animation-delay: -8s;
+}
+
+.gradient-layer:nth-child(4) {
+    background: radial-gradient(circle, var(--color-4), transparent 40%);
+    animation-delay: -12s;
+}
+
+.gradient-layer:nth-child(5) {
+    background: radial-gradient(circle, var(--color-5), transparent 40%);
+    animation-delay: -16s;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    width: 380px;
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.logo {
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    background: linear-gradient(90deg, #ffffff, #A8B2D1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+}
+
+.input-group {
+    margin-bottom: 24px;
+    text-align: left;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-input-bg);
+    color: var(--color-text);
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 242, 169, 0.2);
+}
+
+button, .logout-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-bg);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(0, 242, 169, 0.3);
+}
+
+button::before, .logout-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+button:hover, .logout-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 242, 169, 0.4);
+}
+
+button:hover::before, .logout-button:hover::before {
+    left: 100%;
+}
+
+.error-message {
+    color: var(--color-error);
+    margin-top: 16px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.error-message:not(:empty) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.success-message {
+    color: var(--color-primary);
+    font-size: 16px;
+    margin: 20px 0 30px;
+    line-height: 1.5;
+    font-weight: 500;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
